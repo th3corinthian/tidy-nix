@@ -2,4 +2,4 @@
 #+AUTHOR: Corinthian
 #+DESCRIPTION: A collection of declarative workflows.
 
-[[file:assets/cirnos-logo.jpg]]
+[[file:assets/cirnos-logo.png]]
