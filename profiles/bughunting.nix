@@ -96,6 +96,8 @@
     burpsuite
 
     inetutils
+
+
   ];
 
   # Profile-specific shell setup
