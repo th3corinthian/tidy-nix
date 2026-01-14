@@ -26,7 +26,6 @@
     valgrind
 
     # Profiling
-    gprof
     perf
 
     # Libraries (common ones)
@@ -39,9 +38,6 @@
 
     # Code formatting
     clang-tools
-
-    # Language server for editor integration
-    clangd
 
     # Additional utilities
     bear              # Generates compilation database

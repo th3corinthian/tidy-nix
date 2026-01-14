@@ -31,8 +31,8 @@
   ];
 
   shellHook = ''
-    echo "🔷 Go Development Environment"
-    echo "Go version: ${pkgs.go.version}"
+    echo "[+]-> Go Development Environment"
+    echo "[+]-> Go version: ${pkgs.go.version}"
     echo ""
 
     # Set up Go workspace
@@ -60,7 +60,7 @@
     alias dlv-debug='dlv debug'
     alias dlv-test='dlv test'
 
-    echo "Quick commands:"
+    echo "[+] Quick commands:"
     echo "  got          # Run all tests"
     echo "  gob          # Build all packages"
     echo "  gor          # Run main package"
@@ -69,7 +69,6 @@
   '';
 
   env = {
-    # Go specific environment
-    CGO_ENABLED = "1";  # Enable CGO by default (can disable for static builds)
+    CGO_ENABLED = "1";  # Enable CGO by default
   };
 }
