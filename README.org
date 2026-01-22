@@ -3,4 +3,5 @@
 #+DESCRIPTION: A collection of declarative workflows.
 
 #+ATTR_ORG: :width 200
+#+ATTR_HTML: :width 200px :align center
 [[file:assets/cirnos-logo.png]]
