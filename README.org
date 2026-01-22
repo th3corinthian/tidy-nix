@@ -2,6 +2,5 @@
 #+AUTHOR: Corinthian
 #+DESCRIPTION: A collection of declarative workflows.
 
-#+ATTR_HTML: width="100px"
-#+attr_org: :width 100
+#+ATTR_HTML: :width 50% :height 50%
 [[file:assets/cirnos-logo.png]]
