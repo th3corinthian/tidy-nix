@@ -1,6 +1,59 @@
 { pkgs, commonEnv, lib }:
 
 {
+  wordlistDir = "/tmp/tidy-wordlists";
+  toolsDir = "/tmp/tidy-tools";
+
+  setupScript = pkgs.writeShellScriptBin "setup-bughunting" ''
+    set -euo pipfail
+    echo "[+] Setting up bug hunting environment..."
+
+
+    # Create directories
+    mkdir -p ${wordlistDir} ${toolsDir}
+
+    if [ ! -d "${wordlistDir}/SecLists" ]; then
+      echo "Downloading wordlists..."
+      ${pkgs.curl}/bin/curl -L "https://github.com/danielmiessler/SecLists/archive/master.tar.gz" \
+              | ${pkgs.gzip}/bin/gzip -dc \
+              | ${pkgs.tar}/bin/tar -x -C ${wordlistsDir}
+            mv ${wordlistsDir}/SecLists-master ${wordlistsDir}/SecLists
+          fi
+
+     # Download rockyou.txt if not present
+     if [ ! -f "${wordlistsDir}/rockyou.txt" ]; then
+        echo "[+] Downloading rockyou.txt..."
+            ${pkgs.curl}/bin/curl -L "https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt" \
+              -o ${wordlistsDir}/rockyou.txt
+          fi
+
+     # Clone payload collections
+     if [ ! -d "${toolsDir}/PayloadsAllTheThings" ]; then
+        echo "[+] Cloning PayloadsAllTheThings..."
+        ${pkgs.git}/bin/git clone --depth 1 \
+                            https://github.com/swisskyrepo/PayloadsAllTheThings.git \
+                            ${toolsDir}/PayloadsAllTheThings
+        fi
+
+     if [ ! -d "${toolsDir}/fuzzdb" ]; then
+        echo "[+] Cloning fuzzdb..."
+             ${pkgs.git}/bin/git clone --depth 1 \
+                                 https://github.com/fuzzdb-project/fuzzdb.git \
+                                 ${toolsDir}/fuzzdb
+        fi
+
+     # Setup environment variables
+     echo "export WORDLISTS_DIR=${wordlistsDir}" >> $out
+     echo "export TOOLS_DIR=${toolsDir}" >> $out
+     echo "export FUZZDB=${toolsDir}/fuzzdb" >> $out
+     echo "export PAYLOADS_ALL_THE_THINGS=${toolsDir}/PayloadsAllTheThings" >> $out
+
+     echo "[+] Setup complete! Resources available in:"
+     echo "   Wordlists: ${wordlistsDir}"
+     echo "   Tools: ${toolsDir}"
+  '';
+
+  
   # Profile-specific packages
   packages = with pkgs; [
 
