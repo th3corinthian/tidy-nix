@@ -5,3 +5,6 @@
 #+ATTR_ORG: :width 200
 #+ATTR_HTML: :width 200px :align center
 [[file:assets/cirnos-logo.png]]
+
+#+CAPTION: My diagram for GitHub
+<img src="./assets/cirnos-logo.png" alt="My Diagram" width="200" />
