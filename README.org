@@ -2,5 +2,5 @@
 #+AUTHOR: Corinthian
 #+DESCRIPTION: A collection of declarative workflows.
 
-#+ATTR_LaTeX: :width 0.25\linewidth
+#+ATTR_LATEX: :width 0.25\linewidth
 [[file:assets/cirnos-logo.png]]
