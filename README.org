@@ -2,9 +2,5 @@
 #+AUTHOR: Corinthian
 #+DESCRIPTION: A collection of declarative workflows.
 
-#+ATTR_ORG: :width 200
-#+ATTR_HTML: :width 200px :align center
+#+ATTR_LaTeX: :width 0.25\linewidth
 [[file:assets/cirnos-logo.png]]
-
-#+CAPTION: My diagram for GitHub
-<img src="./assets/cirnos-logo.png" alt="My Diagram" width="200" />
