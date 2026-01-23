@@ -1,6 +1,0 @@
-#+TITLE: tidy-nix
-#+AUTHOR: Corinthian
-#+DESCRIPTION: A collection of declarative workflows.
-
-#+ATTR_LATEX: :width 50
-[[file:assets/cirnos-logo.png]]
